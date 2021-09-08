@@ -1,4 +1,4 @@
-namespace DIO.Series
+namespace JacyWatch
 {
     public abstract class EntidadeBase
     {

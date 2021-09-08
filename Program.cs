@@ -1,7 +1,7 @@
 ﻿using System;
-using DIO.Series.Interfaces;
+using JacyWatch.Interfaces;
 
-namespace DIO.Series
+namespace JacyWatch
 {
     class Program
     {

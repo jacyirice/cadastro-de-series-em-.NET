@@ -1,5 +1,5 @@
 using System;
-namespace DIO.Series
+namespace JacyWatch
 {
     public class Filme : EntidadeBase
     {

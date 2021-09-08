@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using DIO.Series.Interfaces;
+using JacyWatch.Interfaces;
 
-namespace DIO.Series
+namespace JacyWatch
 {
     public class FilmeRepositorio : IRepositorio<Filme>
     {

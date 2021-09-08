@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using DIO.Series.Interfaces;
+using JacyWatch.Interfaces;
 
-namespace DIO.Series
+namespace JacyWatch
 {
     public class SerieRepositorio : IRepositorio<Serie>
     {

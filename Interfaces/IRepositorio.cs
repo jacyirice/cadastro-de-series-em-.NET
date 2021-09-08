@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace DIO.Series.Interfaces
+namespace JacyWatch.Interfaces
 {
     public interface IRepositorio<T>
     {
