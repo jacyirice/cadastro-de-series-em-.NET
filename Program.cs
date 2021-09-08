@@ -39,7 +39,28 @@ namespace DIO.Series
                 opcaoUsuario = ObterOpcaoUsuario();
             }
         }
-        
+
+        private static void ObterDadosSerie(ref int entradaGenero, ref string entradaTitulo,
+        ref int entradaAno, ref string entradaDescricao)
+        {
+            foreach (int i in Enum.GetValues(typeof(Genero)))
+            {
+                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
+            }
+            Console.Write("Digite o gênero entre as opções acima: ");
+            entradaGenero = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o Título da Série: ");
+            entradaTitulo = Console.ReadLine();
+
+            Console.Write("Digite o Ano de Início da Série: ");
+            entradaAno = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite a Descrição da Série: ");
+            entradaDescricao = Console.ReadLine();
+
+        }
+
         private static void ListarSeries()
         {
             Console.WriteLine("Listar séries");
@@ -53,33 +74,22 @@ namespace DIO.Series
             }
 
             foreach (var serie in lista)
-			{
+            {
                 var excluido = serie.retornaExcluido();
-                
-				Console.WriteLine("#ID {0}: - {1} {2}", serie.retornaId(), serie.retornaTitulo(), (excluido ? "*Excluído*" : ""));
-			}
+
+                Console.WriteLine("#ID {0}: - {1} {2}", serie.retornaId(), serie.retornaTitulo(), (excluido ? "*Excluído*" : ""));
+            }
         }
 
         private static void InserirSerie()
         {
             Console.WriteLine("Inserir nova série");
-
-            foreach (int i in Enum.GetValues(typeof(Genero)))
-            {
-                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
-            }
-            Console.Write("Digite o gênero entre as opções acima: ");
-            int entradaGenero = int.Parse(Console.ReadLine());
-
-            Console.Write("Digite o Título da Série: ");
-            string entradaTitulo = Console.ReadLine();
-
-            Console.Write("Digite o Ano de Início da Série: ");
-            int entradaAno = int.Parse(Console.ReadLine());
-
-            Console.Write("Digite a Descrição da Série: ");
-            string entradaDescricao = Console.ReadLine();
-
+            int entradaGenero = 0, entradaAno = 0;
+            string entradaTitulo = "", entradaDescricao = "";
+            ObterDadosSerie(ref entradaGenero,
+                            ref entradaTitulo,
+                            ref entradaAno,
+                            ref entradaDescricao);
             Serie novaSerie = new Serie(id: repositorio.ProximoId(),
                                         genero: (Genero)entradaGenero,
                                         titulo: entradaTitulo,
@@ -94,22 +104,12 @@ namespace DIO.Series
             Console.Write("Digite o id da série: ");
             int indiceSerie = int.Parse(Console.ReadLine());
 
-            foreach (int i in Enum.GetValues(typeof(Genero)))
-            {
-                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
-            }
-            Console.Write("Digite o gênero entre as opções acima: ");
-            int entradaGenero = int.Parse(Console.ReadLine());
-
-            Console.Write("Digite o Título da Série: ");
-            string entradaTitulo = Console.ReadLine();
-
-            Console.Write("Digite o Ano de Início da Série: ");
-            int entradaAno = int.Parse(Console.ReadLine());
-
-            Console.Write("Digite a Descrição da Série: ");
-            string entradaDescricao = Console.ReadLine();
-
+            int entradaGenero = 0, entradaAno = 0;
+            string entradaTitulo = "", entradaDescricao = "";
+            ObterDadosSerie(ref entradaGenero,
+                            ref entradaTitulo,
+                            ref entradaAno,
+                            ref entradaDescricao);
             Serie atualizaSerie = new Serie(id: indiceSerie,
                                         genero: (Genero)entradaGenero,
                                         titulo: entradaTitulo,
