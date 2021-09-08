@@ -1,17 +1,18 @@
 using System;
-
 namespace DIO.Series
 {
-    public class Serie : EntidadeBase
+    public class Filme : EntidadeBase
     {
-        // Metodos
-        public Serie(int id, Genero genero, string titulo, string descricao, int ano)
+        private float Duracao { get; set; }
+
+        public Filme(int id, Genero genero, string titulo, string descricao, int ano, float duracao)
         {
             this.Id = id;
             this.Genero = genero;
             this.Titulo = titulo;
             this.Descricao = descricao;
             this.Ano = ano;
+            this.Duracao = duracao;
             this.Excluido = false;
         }
 
@@ -21,15 +22,10 @@ namespace DIO.Series
             retorno += "Gênero: " + this.Genero + Environment.NewLine;
             retorno += "Titulo: " + this.Titulo + Environment.NewLine;
             retorno += "Descrição: " + this.Descricao + Environment.NewLine;
-            retorno += "Ano de Início: " + this.Ano + Environment.NewLine;
+            retorno += "Ano de lançamento: " + this.Ano + Environment.NewLine;
+            retorno += "Duração: " + this.Duracao + Environment.NewLine;
             retorno += "Excluido: " + this.Excluido;
             return retorno;
         }
-        
-
-        
-        
     }
-
-
 }
