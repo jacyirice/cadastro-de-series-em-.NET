@@ -40,8 +40,10 @@ namespace DIO.Series
             }
         }
 
-        private static void ObterDadosSerie(ref int entradaGenero, ref string entradaTitulo,
-        ref int entradaAno, ref string entradaDescricao)
+        private static void ObterDadosSerie(ref int entradaGenero,
+                                            ref string entradaTitulo,
+                                            ref int entradaAno,
+                                            ref string entradaDescricao)
         {
             foreach (int i in Enum.GetValues(typeof(Genero)))
             {
@@ -124,7 +126,17 @@ namespace DIO.Series
             Console.Write("Digite o id da série: ");
             int indiceSerie = int.Parse(Console.ReadLine());
 
-            repositorio.Exclui(indiceSerie);
+            Console.WriteLine(repositorio.RetornaPorId(indiceSerie));
+
+            Console.WriteLine("Deseja realmente excluir essa serie? s/N");
+            if (Console.ReadLine().ToLower().Equals("s"))
+            {
+                repositorio.Exclui(indiceSerie);
+            }
+            else
+            {
+                Console.WriteLine("Operação cancelada!");
+            }
         }
         private static void VisualizarSerie()
         {
